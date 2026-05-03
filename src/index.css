@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "DM Serif Display", serif;
+  
+  --color-natural-bg: #FDFBF7;
+  --color-natural-text: #3D4035;
+  --color-natural-accent: #6B705C;
+  --color-natural-muted: #A5A58D;
+  --color-natural-border: #E9E5D9;
+  --color-natural-highlight: #DDBEA9;
+  --color-natural-warm: #FFE8D6;
+}
+
+@layer base {
+  body {
+    @apply bg-natural-bg text-natural-text antialiased selection:bg-natural-highlight/30;
+  }
+}
+
+@layer components {
+  .natural-card {
+    @apply bg-white border border-natural-border rounded-[32px] shadow-sm transition-all duration-300;
+  }
+}
+
+.tip-card {
+  @apply bg-white/60 p-5 rounded-3xl border border-natural-border/60 transition-all hover:bg-white hover:border-natural-highlight/40 hover:shadow-sm;
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-natural-bg;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-natural-border rounded-full hover:bg-natural-muted transition-colors;
+}
